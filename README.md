@@ -117,6 +117,9 @@ For each port:
 
 --> WHOIS Lookup tool
 
+OUTPUT
+
+
 --> HTML / PDF Report Generator
 
 --> Authentication login page
