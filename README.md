@@ -117,11 +117,12 @@ For each port:
 
 --> WHOIS Lookup tool
 
-OUTPUT
-
-"https://github.com/user-attachments/assets/6fbe004b-fa27-4d3f-a160-d5f27c7289b1" />
 --> HTML / PDF Report Generator
 
 --> Authentication login page
 
 -->Dark mode web UI
+
+ OUTPUT
+
+"https://github.com/user-attachments/assets/6fbe004b-fa27-4d3f-a160-d5f27c7289b1" />
