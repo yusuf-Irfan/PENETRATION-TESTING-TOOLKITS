@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Port Scanner</title>
+</head>
+<body>
+    <h1> Simple Port Scanner</h1>
+    <form method="post">
+        <label>Target IP:</label>
+        <input type="text" name="target_ip" required><br><br>
+
+        <label>Start Port:</label>
+        <input type="number" name="port_start" required><br><br>
+
+        <label>End Port:</label>
+        <input type="number" name="port_end" required><br><br>
+
+        <button type="submit">Scan</button>
+    </form>
+
+    {% if results %}
+        <h2>Scan Results:</h2>
+        <ul>
+            {% for result in results %}
+                <li>{{ result }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>
