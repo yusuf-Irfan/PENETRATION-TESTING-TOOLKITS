@@ -12,7 +12,7 @@ DURATION: 4 WEEKS
 
 MENTOR: NEELA SANTOSH
 
-1. Project Objective
+Project Objective
 
 --> Build a Python-based Penetration Testing Toolkit.
 
@@ -26,103 +26,184 @@ MENTOR: NEELA SANTOSH
 
 --> Designed for ethical hacking and network auditing.
 
-2. Tools & Technologies Used
+Tools & Technologies Used:
 
-Python 3.13 → Core programming language for backend logic.
+1. Python 3.10+:
 
-Flask → Lightweight Python web framework to run the app in Chrome.
-
-Socket Module → For TCP port scanning and making raw network connections.
-
-HTML (Jinja Template) → To create the frontend user interface (input form + output display).
-
-Google Chrome → As the browser to run the frontend interface.
-
-Visual Studio Code (VS Code) → Main IDE used to write, run, and manage the project.
-
-Terminal (Command Prompt) → Used to install packages and run the Flask server.
-
-scanme.nmap.org → Safe IP used for penetration testing (offered by Nmap for practice).
-
-Operating System → Windows 10/11 (user tested environment).
-
-3. Modules / Files Included
-
-app.py → Main Flask application that handles routing and user requests.
-
-port_scanner.py → Python file that contains the actual scanning logic using sockets.
-
-index.html → HTML file placed inside templates/ folder for user interface.
-
-modules/ → Directory that stores all scanning logic (modular structure).
-
-templates/ → Folder for storing front-end HTML files required by Flask.
-
-4. How the Tool Works
-
---> User visits http://127.0.0.1:5000 in Chrome (served by Flask).
-
---> A form is displayed asking for:
-
-    1. Target IP
-
-    2.Start port
-
-    3.End port
+Chosen as the primary language due to its simplicity, rich library ecosystem, and widespread use in cybersecurity.
 
 
-When the user submits the form:
 
---> Flask receives the input
+2. VS Code (Visual Studio Code):
 
---> The backend Python script loops through the port range
+IDE used for developing the toolkit. Its debugger, terminal integration, and extensions made development and testing efficient.
 
-For each port:
 
---> Tries to establish a connection
 
---> If successful → the port is OPEN
+3. Standard Python Libraries:
 
---> Tries to retrieve a banner (like Apache, SSH, etc.)
+socket, subprocess, os, sys, argparse, and time were used to build low-level networking tools, automate commands, and handle arguments.
 
---> The final output is displayed on the webpage in list format.
 
-5. Real-World Use Cases
 
---> Used by ethical hackers to map out which services are running on a server.
+4. Third-party Libraries:
 
---> Helps in network auditing and cybersecurity assessments.
+requests and BeautifulSoup: For web-based scanning and parsing.
 
---> Can identify misconfigured services or unprotected open ports.
+nmap (optional): For deeper port scanning if installed with python-nmap.
 
---> Useful in penetration testing internships or CTF competitions.
+colorama: For colored CLI output for better user readability.
 
- 6. Security Considerations
+threading: To implement multithreading for speed and parallel execution in scans.
 
---> This scanner is safe for use on local or legal IPs.
 
---> Use only on systems you own or have permission to test.
 
---> Targeting unauthorized systems can result in legal issues.
+5. Command Line Interface (CLI):
 
- 7. Future Scope / Next Modules
+Each module was designed to be executed from the terminal with user input, target IPs, and configurations.
 
---> Multi-threaded scanning for speed
 
---> Brute force login module (FTP, SSH)
+Modules Implemented in the Toolkit:
 
---> Banner grabbing with version fingerprinting
+1. Port Scanner:
 
---> Subdomain scanner
+Performs scanning of a target IP to identify open ports and services.
 
---> WHOIS Lookup tool
+Uses socket.connect_ex() to test port connectivity.
 
---> HTML / PDF Report Generator
+Multi-threaded implementation for faster scanning.
 
---> Authentication login page
 
--->Dark mode web UI
 
- OUTPUT
+2. Brute Force Login Tester:
+
+Designed to test weak credentials on services like SSH, FTP, or web logins.
+
+Reads a list of usernames and passwords from files and attempts logins.
+
+Added delay and logging to mimic real-world scenarios and avoid lockouts.
+
+
+
+3. Subdomain Finder:
+
+Takes a base domain and brute-forces subdomains using a dictionary file.
+
+Makes HTTP requests to check if subdomains are live.
+
+
+
+4. Whois & DNS Lookup Tool:
+
+Queries domain registration data and DNS records.
+
+Uses socket and APIs (if allowed) to gather information about IPs and domains.
+
+
+
+5. IP Geolocation Lookup:
+
+Uses public APIs to find geolocation, ISP, and other metadata for a given IP address.
+
+
+
+6. Directory/File Enumerator:
+
+Brute-forces common directories or file names on websites.
+
+Checks for HTTP status codes to determine accessibility (e.g., 200 OK, 403 Forbidden).
+
+
+
+7. Email and Phone Number Extractor:
+
+Crawls a web page or text content to extract sensitive data like email addresses and phone numbers using regex.
+
+
+
+8. Basic Vulnerability Scanner:
+
+Checks for common vulnerabilities like:
+
+SQL Injection (' OR '1'='1)
+
+Cross-site scripting (XSS) (<script>alert(1)</script>)
+
+Directory Traversal (../../etc/passwd)
+
+
+Sends payloads through forms or URLs and observes the responses.
+
+
+Development Process:
+
+1. Requirement Analysis:
+
+Understood what ethical hackers and penetration testers need in real-world tools.
+
+Broke down the task into sub-tools (modules).
+
+
+
+2. Modular Architecture:
+
+Designed each tool as a standalone Python file or function.
+
+Ensured code reusability and separation of concerns.
+
+
+
+3. Testing on Local Network:
+
+Tested port scanning and brute force modules on localhost and test servers.
+
+Simulated vulnerabilities on mock websites for safe testing.
+
+
+
+4. User Interface:
+
+Built a simple CLI menu to select the desired module.
+
+Each module prompts for inputs like IPs, domains, file paths, etc.
+
+
+
+5. Error Handling:
+
+Handled exceptions such as network timeouts, permission errors, and file read/write issues gracefully.
+
+
+
+6. Documentation & Logging:
+
+Added comments and docstrings to make the code understandable.
+
+Implemented logging in key modules to record attack attempts and results.
+
+
+
+Use Cases:
+
+Testing the security posture of internal or client-side systems.
+
+Identifying weak passwords, open ports, and poor configurations.
+
+Simulating real-world attack scenarios in a controlled environment.
+
+
+
+Key Learnings:
+
+Understood how real-world cyber-attacks are scripted and detected.
+
+Learned about network protocols, web vulnerabilities, and system architecture.
+
+Improved skills in multithreading, API usage, CLI design, and ethical hacking principles.
+
+Practiced responsible coding and avoided illegal use cases by focusing only on authorized penetration testing.
+
+ 
+OUTPUT:
 
 "https://github.com/user-attachments/assets/6fbe004b-fa27-4d3f-a160-d5f27c7289b1" />
